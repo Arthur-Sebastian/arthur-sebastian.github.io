@@ -1,0 +1,37 @@
+/* latin */
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/catamaran/v17/o-0IIpQoyXQa2RxT7-5r5TRA.woff2) format('woff2');
+}
+/* latin */
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/catamaran/v17/o-0IIpQoyXQa2RxT7-5r5TRA.woff2) format('woff2');
+}
+/* latin */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v23/iJWKBXyIfDnIV7nBrXw.woff2) format('woff2');
+}
+/* latin */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v23/iJWKBXyIfDnIV7nBrXw.woff2) format('woff2');
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

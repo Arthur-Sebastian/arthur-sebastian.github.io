@@ -1,0 +1,5 @@
+const Breakpoints = {
+	
+}
+
+export { Breakpoints };
