@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { cardStyle } from "./Card";
-import { Breakpoint, mediaQuerySize } from "./Responsive";
+import { Breakpoint, mediaQuerySize, mediaQueryHover } from "./Responsive";
 import { IconButton } from "./Button";
 
-const CarouselContainer = styled.article`
+const CarouselContainer = styled.div`
 --itemSize: 150px;
 position: relative;
-overflow: visible;
 
 ${mediaQuerySize(Breakpoint.tablet)} {
 	--itemSize: 200px;
@@ -21,10 +19,21 @@ ${mediaQuerySize(Breakpoint.desktop)} {
 const CarouselButton = styled(IconButton)<{
 	right ?: boolean
 }>`
+display: none;
 position: absolute;
 z-index: 1;
 
 top: calc(50% - 25px);
+
+${mediaQueryHover} {
+	display: block;
+	transition: opacity var(--effect-duration);
+	opacity:30%;
+
+	&:hover {
+		opacity: 100%;
+	}
+}
 
 ${props => props.right ? (`
 	right: var(--spacing-inner);
@@ -37,6 +46,7 @@ const CarouselScroll = styled.ol`
 list-style-type: none;
 padding: 0 var(--spacing-inner);
 margin: var(--spacing-outer) 0;
+scroll-snap-type: x mandatory;
 
 display: flex;
 align-items: center;
@@ -49,26 +59,22 @@ overflow-y: visible;
 const CarouselCardContainer = styled.li<{
 	highlight ?: boolean
 }>`
-${cardStyle}
 
 flex: 0 0 var(--itemSize);
 padding: var(--spacing-inner);
-height: var(--itemSize);
 transition: height var(--effect-duration);
+scroll-snap-align: center;
 
-${props => props.highlight ? (`
-	filter: none;
-	height: calc(var(--itemSize) * 1.1);
-`) : (`
-	filter: grayscale(1);
-`)}
+user-select: none;
 
 ${props => props.color ? (`
 	background-color: ${props.color};
 `) : (``)}
 `;
 
-const CarouselCardImage = styled.img`
+const CarouselCardImage = styled.img<{
+	highlight?: boolean
+}>`
 height: 50px;
 width: auto;
 
@@ -81,10 +87,17 @@ ${mediaQuerySize(Breakpoint.tablet)} {
 ${mediaQuerySize(Breakpoint.desktop)} {
 	height: 100px;
 }
+
+${props => props.highlight ? (`
+	filter: none;
+`) : (`
+	filter: grayscale(1);
+`)}
 `;
 
 const CarouselCardText= styled.p<{
 	color ?: string
+	highlight?: boolean
 }>`
 font-size: var(--size-text-small);
 margin-top: var(--spacing-inner);
@@ -92,12 +105,18 @@ margin-top: var(--spacing-inner);
 & strong {
 	color: ${props => props.color};
 }
+
+${props => props.highlight ? (`
+	filter: none;
+`) : (`
+	filter: grayscale(1);
+`)}
 `;
 
 interface CarouselCardInterface {
-	color ?: string,
-	imgSrc ?: string,
-	children : any,
+	color?: string,
+	imgSrc?: string,
+	children: any,
 }
 
 const CarouselCardComponent = (
@@ -106,8 +125,8 @@ const CarouselCardComponent = (
 ) => {
 	return (
 		<CarouselCardContainer highlight={highlight}>
-			{props.imgSrc && <CarouselCardImage src={props.imgSrc} alt=""/>}
-			<CarouselCardText color={props.color} children={props.children}/>
+			{props.imgSrc && <CarouselCardImage highlight={highlight} src={props.imgSrc} alt=""/>}
+			<CarouselCardText color={props.color} highlight={highlight} children={props.children}/>
 		</CarouselCardContainer>
 	);
 };
@@ -127,13 +146,7 @@ const CarouselComponent = (props:{
 			scrollValue === childCount ? setScrollValue(0) : setScrollValue(scrollValue + 1);
 		}}/>
 			<CarouselScroll>
-			{ React.Children.map(props.children, (child, index) => {
-				if (index === scrollValue) {
-					return child;
-				} else {
-					return CarouselCardComponent(child.props, false);
-				}
-			}) }
+			{props.children}
 			</CarouselScroll>
 		</CarouselContainer>
 	);

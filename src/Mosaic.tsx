@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Breakpoint, mediaQuerySize } from "./Responsive";
-
-import { cardStyle } from "./Card";
+import {cardStyle} from "./Card";
+import {Breakpoint, mediaQuerySize} from "./Responsive";
 
 const MosaicContainer = styled.div`
 display: flex;
@@ -40,12 +39,14 @@ margin: 0 auto;
 border-radius: var(--decoration-rounding-inner);
 `;
 
-const MosaicCardComponent = (props: {
+interface MosaicCardInterface {
 	title: string,
 	imgSrc: string,
 	imgAlt: string,
 	children: string
-}) => {
+}
+
+const MosaicCardComponent = (props: MosaicCardInterface) => {
 	return (
 		<MosaicCard>
 			<MosaicCardImage alt={props.imgAlt} src={props.imgSrc}/>
@@ -56,13 +57,16 @@ const MosaicCardComponent = (props: {
 };
 
 const MosaicComponent = (props: {
-	leftColumn: any,
-	rightColumn: any
+	children: React.ReactElement<MosaicCardInterface>[]
 }) => {
+
+	let middle = Math.ceil(props.children.length / 2);
+	console.log(middle);
+
 	return (
 		<MosaicContainer>
-			<MosaicColumn children={props.leftColumn} />
-			<MosaicColumn children={props.rightColumn}/>
+			<MosaicColumn children={props.children.slice(0, middle)}/>
+			<MosaicColumn children={props.children.slice(-middle)}/>
 		</MosaicContainer>
 	);
 };

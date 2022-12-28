@@ -23,4 +23,7 @@ ${props => props.padded ? (`
 `) : (``)}
 `;
 
-export { Card, cardStyle };
+export {
+	Card,
+	cardStyle
+};

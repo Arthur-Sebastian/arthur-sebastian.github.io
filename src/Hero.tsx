@@ -2,14 +2,13 @@ import styled from 'styled-components';
 import { mediaQueryHover } from './Responsive';
 
 const HeroContainer = styled.div`
---minHeight: 500px;
 display: flex;
 flex-flow: column nowrap;
 justify-content: center;
 align-items: center;
 position: relative;
 
-min-height: var(--minHeight);
+min-height: var(--size-height-base);
 height: calc(100vh - var(--size-navbar));
 max-height: var(--size-height-max);
 
@@ -23,13 +22,11 @@ z-index: 0;
 height: 100%;
 width: 100%;
 object-fit: cover;
-min-height: var(--minHeight);
 `;
 
 const HeroContent = styled.div`
 z-index: 1;
 display: flex;
-flex: 1 1;
 flex-flow: column nowrap;
 align-items: center;
 justify-content: center;

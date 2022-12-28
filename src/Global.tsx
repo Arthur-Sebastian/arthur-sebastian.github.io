@@ -4,9 +4,10 @@ import { Breakpoint, Size, mediaQuerySize } from './Responsive';
 
 const GlobalStyle = createGlobalStyle`
 :root {
-	--size-width-base: ${Size.baseWidth};
-	--size-width-max:  ${Size.maxWidth};
-	--size-height-max: ${Size.maxHeight};
+	--size-width-base:  ${Size.baseWidth};
+	--size-width-max:   ${Size.maxWidth};
+	--size-height-base: ${Size.baseHeight};
+	--size-height-max:  ${Size.maxHeight};
 	--size-navbar: 70px;
 
 	--size-text-base: 14px;
