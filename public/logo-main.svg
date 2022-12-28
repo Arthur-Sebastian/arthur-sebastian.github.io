@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="19.197912mm"
-   height="9.5794983mm"
-   viewBox="0 0 19.197912 9.5794983"
+   width="17.197912mm"
+   height="9.5790005mm"
+   viewBox="0 0 17.197912 9.5790004"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="ffffff.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="logo-main.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -28,19 +28,21 @@
      fit-margin-top="1"
      fit-margin-bottom="1"
      inkscape:zoom="8"
-     inkscape:cx="44.625"
-     inkscape:cy="32.375"
+     inkscape:cx="33"
+     inkscape:cy="24.9375"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#858585">
     <inkscape:grid
        type="xygrid"
        id="grid824"
-       originx="-83.666668"
-       originy="-146.68425" />
+       originx="-84.666653"
+       originy="-147.68424" />
   </sodipodi:namedview>
   <defs
      id="defs2" />
@@ -48,10 +50,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-83.666667,-146.68425)">
+     transform="translate(-84.666667,-147.68425)">
     <path
        style="fill:none;stroke:#ffffff;stroke-width:0.965;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 84.666667,154.78125 h 1.322917 l 2.645833,-6.61458 2.645833,6.61458 h 1.322917 l 2.645833,-6.61458 2.645834,6.61458 H 95.25 l 2.645834,-6.61458 2.645836,6.61458 h 1.32291"
+       d="m 84.666684,155.83959 h 1.322917 l 2.645833,-6.61458 2.645833,6.61458 h 1.322917 l 2.645833,-6.61458 2.645834,6.61458 h -2.645834 l 2.645834,-6.61458 2.645839,6.61458 h 1.32291"
        id="path10749"
        sodipodi:nodetypes="ccccccccccc" />
   </g>
