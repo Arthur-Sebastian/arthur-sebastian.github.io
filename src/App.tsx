@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { GlobalStyle } from './Global'
-import { Topbar } from './Topbar';
-import { Hero } from './Hero';
-import { TextButton } from './Button';
-import { Wrapper } from './Wrapper';
-import { Profile } from './Profile';
-import { Mosaic, MosaicCard } from './Mosaic';
-import { Title } from './Title';
-import { Footer } from './Footer';
-import { Carousel, CarouselCard } from './Carousel';
+import {GlobalStyle} from './Global'
+import {Topbar} from './Topbar';
+import {Hero} from './Hero';
+import {TextButton} from './Button';
+import {Wrapper} from './Wrapper';
+import {Profile} from './Profile';
+import {Mosaic, MosaicCard} from './Mosaic';
+import {Title} from './Title';
+import {Footer} from './Footer';
+import {Carousel, CarouselCard} from './Carousel';
 import {Banner} from './Banner';
 
 function App() {
@@ -47,10 +47,10 @@ function App() {
 				<strong>JavaScript</strong> scripting for <strong>Node</strong> applications.
 				</CarouselCard>
 				<CarouselCard imgSrc="icon_html.svg" color="#e44d26">
-				Semantic <strong>HTML</strong> markup for <strong>accessibility</strong>.
+				Semantic <strong>HTML 5</strong> markup for <strong>accessibility</strong>.
 				</CarouselCard>
 				<CarouselCard imgSrc="icon_css.svg" color="#2965f1">
-				<strong>Modern</strong>, BEM compliant <strong>CSS</strong>, also with styled-components.
+				<strong>Modern</strong>, BEM compliant <strong>CSS 3</strong>, also with styled-components.
 				</CarouselCard>
 				<CarouselCard imgSrc="icon_inkscape.svg" color="#808080">
 				Vector <strong>graphic design</strong> using Inkscape.
