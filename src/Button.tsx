@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {mediaQueryHover} from './Responsive';
+import {Breakpoint, mediaQueryHover, mediaQuerySize} from './Responsive';
 
 const ButtonComponent = styled.a<{filled?: boolean}>`
 box-sizing: border-box;
@@ -54,14 +54,20 @@ const TextButton = (props: {
 const IconButton = styled.button<{
 	iconSrc : string
 }>`
-width: 50px;
-height: 50px;
+--buttonSize: 30px;
+
+width: var(--buttonSize);
+height: var(--buttonSize);
 border: none;
-border-radius: 30px;
+border-radius: var(--buttonSize);
 background: center no-repeat url(${props => props.iconSrc});
 background-color: white;
 color: transparent;
 padding: 0;
+
+${mediaQuerySize(Breakpoint.tablet)} {
+	--buttonSize: 50px;
+}
 `;
 
 export {

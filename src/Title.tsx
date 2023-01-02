@@ -18,7 +18,7 @@ const TitleMain = styled.h2`
 	margin-top: 0;
 	font-size: var(--size-text-medium);
 	line-height: var(--size-text-medium);
-	color: var(--color-theme-primary);
+	color: var(--color-theme-secondary);
 	font-family: Catamaran;
 `;
 

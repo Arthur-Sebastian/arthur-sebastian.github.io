@@ -43,7 +43,7 @@ interface MosaicCardInterface {
 	title: string,
 	imgSrc: string,
 	imgAlt: string,
-	children: string
+	children: any
 }
 
 const MosaicCardComponent = (props: MosaicCardInterface) => {
@@ -61,7 +61,6 @@ const MosaicComponent = (props: {
 }) => {
 
 	let middle = Math.ceil(props.children.length / 2);
-	console.log(middle);
 
 	return (
 		<MosaicContainer>

@@ -1,8 +1,8 @@
 import React from "react";
-import {Transition} from "react-transition-group";
 import styled from "styled-components";
 import {Breakpoint, mediaQuerySize, mediaQueryHover} from "./Responsive";
 import {IconButton} from "./Button";
+import {useIsVisible} from "./Hooks";
 
 const CarouselContainer = styled.div`
 --itemSize: 150px;
@@ -23,13 +23,13 @@ ${mediaQuerySize(Breakpoint.desktop)} {
 const CarouselButton = styled(IconButton)<{
 	right ?: boolean
 }>`
-display: none;
+--middleOffset: calc(50% - var(--buttonSize) / 2);
 position: absolute;
 z-index: 1;
-top: calc(50% - 25px);
+top: var(--middleOffset);
+opacity: 50%;
 
 ${mediaQueryHover} {
-	display: block;
 	transition: opacity var(--effect-duration);
 	opacity:30%;
 
@@ -45,24 +45,39 @@ ${props => props.right ? (`
 `)}
 `;
 
-const CarouselScroll = styled.ol`
+const CarouselScroll = styled.ol<{
+	visible: boolean
+}>`
 --scrollPadding: calc(50% - var(--itemSize) / 2);
 
 list-style-type: none;
-padding: 0 var(--scrollPadding);
+transition-property: transform, opacity;
+transition-duration: var(--effect-duration-long);
 margin: var(--spacing-outer) 0;
-scroll-snap-type: x proximity;
+padding: 0 var(--scrollPadding);
+scroll-snap-type: x mandatory;
 overflow-x: scroll;
 display: flex;
 flex-flow: row nowrap;
 gap: var(--spacing-outer);
 
 scrollbar-width: none;
+
+${props => !props.visible && `
+	transform: translate(0, 20vh);
+	opacity: 0%;
+`}
 `;
 
 const CarouselCardContainer = styled.li<{
 	selected?: boolean
 }>`
+box-sizing: border-box;
+border: var(--decoration-outline-normal) #2a2a2a;
+border-left: none;
+border-top: none;
+border-radius: var(--decoration-rounding-outer);
+
 flex: 0 0 var(--itemSize);
 padding: var(--spacing-inner);
 scroll-snap-align: center;
@@ -115,13 +130,18 @@ const CarouselCardComponent = (
 const CarouselComponent = (props:{
 	children: React.ReactElement<CarouselCardInterface>[]
 }) => {
+	const scrollRef = React.createRef<HTMLOListElement>();
+	const isVisible = useIsVisible(scrollRef);
+
 	return (
 		<CarouselContainer>
-		<CarouselButton iconSrc="arrow-left.svg" children="left" onClick={() => {
+		<CarouselButton iconSrc="arrow-left.svg" children="scroll left" onClick={() => {
+			scrollRef.current?.scrollBy({top: 0, left: -100, behavior: "smooth"});
 		}}/>
-		<CarouselButton iconSrc="arrow-right.svg" right children="right" onClick={() => {
+		<CarouselButton iconSrc="arrow-right.svg" right children="scroll right" onClick={() => {
+			scrollRef.current?.scrollBy({top: 0, left: 100, behavior: "smooth"});
 		}}/>
-			<CarouselScroll children={props.children}/>
+		<CarouselScroll ref={scrollRef} visible={isVisible} children={props.children}/>
 		</CarouselContainer>
 	);
 };

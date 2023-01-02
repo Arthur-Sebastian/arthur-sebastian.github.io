@@ -14,7 +14,7 @@ const mediaQueryHover = "@media only screen and (hover: hover)";
 const Size = {
 	baseWidth:  "1280px",
 	maxWidth:   "1920px",
-	baseHeight: "200px",
+	baseHeight: "300px",
 	maxHeight:  "1080px",
 };
 

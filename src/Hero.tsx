@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { mediaQueryHover } from './Responsive';
 
 const HeroContainer = styled.div`
 display: flex;
@@ -8,9 +7,7 @@ justify-content: center;
 align-items: center;
 position: relative;
 
-min-height: var(--size-height-base);
-height: calc(100vh - var(--size-navbar));
-max-height: var(--size-height-max);
+height: 100%;
 
 background-color: var(--color-background-special);
 box-shadow: var(--decoration-shadow-secondary);
@@ -24,7 +21,7 @@ width: 100%;
 object-fit: cover;
 `;
 
-const HeroContent = styled.div`
+const HeroContent = styled.header`
 z-index: 1;
 display: flex;
 flex-flow: column nowrap;
@@ -35,20 +32,24 @@ text-shadow: var(--decoration-shadow-secondary);
 text-align: center;
 `;
 
-const HeroHeading = styled.h1`
+const HeroTitle = styled.h1`
 margin: 0;
 `;
 
-const HeroSubheading = styled.h2`
-margin: 0;
+const HeroTagline = styled.p`
 margin-bottom: var(--spacing-inner);
 margin-top: var(--spacing-inner-half);
-font-weight: normal;
 `;
 
-const HeroArrow = styled.a`
+const HeroArrowMarker = styled.div`
+@keyframes bounce {
+0% { transform: translate(0, -20px); }
+100% { transform: translate(0, 0); }
+}
+
 position: absolute;
 bottom: var(--spacing-inner);
+
 width: 40px;
 height: 40px;
 
@@ -57,16 +58,9 @@ background-image: url(arrow-down.svg);
 background-repeat: no-repeat;
 background-size: 100%;
 background-position: center;
-
-${mediaQueryHover} {
-	transition-property: transform;
-	transition-duration: var(--effect-duration);
-
-	&:hover {
-		opacity: 100%;
-		transform: scale(1.2);
-	}
-}
+animation-name: bounce;
+animation-duration: 1s;
+animation-iteration-count: infinite;
 `;
 
 const Hero = (props: {
@@ -80,11 +74,13 @@ const Hero = (props: {
 		<HeroContainer>
 			<HeroVideo src={props.videoSrc} autoPlay muted loop/>
 			<HeroContent>
-				<HeroHeading children={props.title}/>
-				<HeroSubheading children={props.text}/>
+				<hgroup>
+					<HeroTitle children={props.title}/>
+					<HeroTagline children={props.text}/>
+				</hgroup>
 				{props.children}
 			</HeroContent>
-			<HeroArrow href={props.arrowHref}/>
+			<HeroArrowMarker/>
 		</HeroContainer>
 		   );
 };

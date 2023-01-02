@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const TopbarContainer = styled.header`
+const TopbarContainer = styled.div`
 	width: 100%;
 	height: var(--size-navbar);
 	text-align: center;

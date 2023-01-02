@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 const BannerContainer = styled.section`
-height: 110vh;
-min-height: var(--size-height-base);
-max-height: var(--size-height-max);
+height: 100%;
 display: flex;
 flex-flow: column nowrap;
 justify-content: center;
@@ -18,12 +16,12 @@ margin-bottom: var(--spacing-outer);
 
 const BannerTitle = styled.h2`
 margin-top: 0;
-color: var(--color-theme-primary);
+color: var(--color-theme-secondary);
 `;
 
 const BannerTagline = styled.p`
-font-size: var(--size-text-large);
-line-height: var(--size-text-large);
+font-size: var(--size-text-medium);
+line-height: var(--size-text-medium);
 `;
 
 const BannerHeading = (props: {
