@@ -72,7 +72,7 @@ const Hero = (props: {
 }) => {
 	return (
 		<HeroContainer>
-			<HeroVideo src={props.videoSrc} autoPlay muted loop/>
+			<HeroVideo src={props.videoSrc} autoPlay muted loop playsInline/>
 			<HeroContent>
 				<hgroup>
 					<HeroTitle children={props.title}/>
