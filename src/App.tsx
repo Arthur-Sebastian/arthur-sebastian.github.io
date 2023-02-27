@@ -18,14 +18,14 @@ function App() {
 		<>
 		<GlobalStyle/>
 		<Topbar logoSrc="/logo-main.svg" logoAlt="logo" logoHref="#top">
-			<TextButton href="mailto:artursebastianmiller@gmail.com" children="CONTACT"/>
+			<TextButton href="https://github.com/arthur-sebastian" children="GITHUB"/>
 		</Topbar>
 		<Wrapper fullscreen>
 			<Hero
 			videoSrc="/hero-video.mp4"
 			arrowHref="#aboutme"
 			title="Artur Sebastian Miller"
-			text="Web developer & graphic designer.">
+			text="Software developer & web designer.">
 				<TextButton href="#portfolio" filled children="PORTFOLIO"/>
 			</Hero>
 		</Wrapper>
@@ -48,23 +48,23 @@ function App() {
 				<CarouselCard imgSrc="icon_js.svg" color="#f7df1e">
 				<strong>JavaScript</strong> scripting for <strong>Node</strong> applications.
 				</CarouselCard>
+				<CarouselCard imgSrc="icon_cpp.svg" color="#659ad2">
+				<strong>Object oriented</strong> programming in <strong>C++</strong>.
+				</CarouselCard>
+				<CarouselCard imgSrc="icon_bash.svg" color="#4eaa25">
+				Advanced <strong>scripting</strong> in <strong>BASH</strong> shell.
+				</CarouselCard>
 				<CarouselCard imgSrc="icon_html.svg" color="#e44d26">
 				Semantic <strong>HTML 5</strong> markup for <strong>accessibility</strong>.
 				</CarouselCard>
 				<CarouselCard imgSrc="icon_css.svg" color="#5282f1">
-				<strong>Modern</strong>, responsive and BEM compliant <strong>CSS 3</strong>.
+				Modern, <strong>responsive </strong>and BEM compliant <strong>CSS 3</strong>.
 				</CarouselCard>
 				<CarouselCard imgSrc="icon_inkscape.svg" color="#808080">
 				Vector <strong>graphic design</strong> using Inkscape.
 				</CarouselCard>
 				<CarouselCard imgSrc="icon_blender.svg" color="#e87d0d">
 				3D <strong>graphic design</strong> and rendering in <strong>Blender</strong>.
-				</CarouselCard>
-				<CarouselCard imgSrc="icon_cpp.svg" color="#659ad2">
-				<strong>Object oriented</strong> programming in <strong>C++</strong>.
-				</CarouselCard>
-				<CarouselCard imgSrc="icon_bash.svg" color="#4eaa25">
-				Advanced <strong>scripting</strong> in <strong>BASH</strong> shell.
 				</CarouselCard>
 			</Carousel>
 		</Banner>
